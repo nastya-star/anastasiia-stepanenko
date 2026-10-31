@@ -19,7 +19,7 @@ const CV = { en: 'Anastasiia_Stepanenko_CV.pdf', de: null }; // English Europass
 // The fuel project (separate repo) is not published yet (checked 2026-10-31).
 const FUEL_URL = null; // set to 'https://nastya-star.github.io/munich-fuel-min/' once it is live
 // Apps Script /exec URL of apps-script/cv-mailer; null = email delivery not set up yet.
-const MAILER_URL = null;
+const MAILER_URL = 'https://script.google.com/macros/s/AKfycbw2ujz24SGgibmiJL6kNifrusFNfSHXZ3iXcK7mJpe0aUrVbTIv_5yqcuGA5m0JuDeJ/exec';
 
 // --- Text ------------------------------------------------------------------
 const T = {

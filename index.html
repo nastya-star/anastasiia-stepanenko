@@ -3,48 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Anastasiia Stepanenko · Munich</title>
-<meta name="description" content="Anastasiia Stepanenko, Munich: LinkedIn, phone, WhatsApp, email and GitHub.">
-<meta name="theme-color" content="#000000">
+<title>Anastasiia Stepanenko · Optimization &amp; Data Science · Munich</title>
+<meta name="description" content="Anastasiia Stepanenko, MSc student in Mathematics in Data Science at the Technical University of Munich. Optimization &amp; Data Science, Munich.">
+<meta name="theme-color" content="#111111">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='black'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='white' letter-spacing='1'%3EAS%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23111'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Georgia,serif' font-size='15' fill='%23F5F3EE'%3EAS%3C/text%3E%3C/svg%3E">
 <style>
-:root{--bg:#000;--fg:#fff;--mute:#a3a3a3;--line:rgba(255,255,255,.82);--hover:rgba(255,255,255,.08);--press:rgba(255,255,255,.16)}
+:root{--bg:#111111;--fg:#F5F3EE;--mute:#B9B5AC;--line:rgba(245,243,238,.7);--soft:rgba(245,243,238,.35);--hover:rgba(245,243,238,.08);--press:rgba(245,243,238,.16);--serif:Georgia,"Times New Roman",Times,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box}
 html{background:var(--bg)}
-body{margin:0;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg);font:400 18px/1.35 "EB Garamond",Garamond,"Times New Roman",serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+main{max-width:34rem;margin:0 auto;padding:4.5rem 1.25rem 4rem}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
-main{width:100%;max-width:27rem;padding:3.5rem 1rem}
 
-/* Card header, after the engraved-stationery look: small caps, wide tracking, hairline rule */
-header{text-align:center;margin-bottom:2.75rem}
-h1{margin:0;font-weight:400;font-size:clamp(2rem,8.5vw,2.6rem);line-height:1.1;font-variant:small-caps;letter-spacing:.09em}
-.rule{width:3.5rem;height:1px;margin:1.1rem auto;background:var(--fg);opacity:.7}
-.place{margin:0;font-size:.92rem;letter-spacing:.42em;text-transform:uppercase;padding-left:.42em;color:var(--fg)}
+header{margin-bottom:3rem}
+h1{margin:0;font:400 clamp(2.1rem,8vw,2.75rem)/1.1 var(--serif);letter-spacing:.01em}
+.focus{margin:.9rem 0 0;font-size:.82rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.study{margin:1.1rem 0 0;color:var(--mute);max-width:28rem}
+.place{margin:.35rem 0 0;color:var(--mute)}
+.place svg{width:15px;height:15px;vertical-align:-2px;margin-right:.35rem}
 
-nav ul{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
-.btn{display:flex;align-items:center;gap:1rem;width:100%;min-height:4.25rem;padding:.7rem 1.1rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);text-decoration:none;transition:background-color .15s,border-color .15s,transform .08s}
-.btn:hover{background:var(--hover);border-color:#fff}
-.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.btn:active{background:var(--press);transform:translateY(1px)}
-.btn svg{flex:none;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+h2{margin:0 0 1rem;font:400 1.35rem/1.2 var(--serif)}
+section+section{margin-top:3rem}
+
+ul{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+.primary{grid-template-columns:1fr 1fr;margin-bottom:.7rem}
+@media(max-width:30rem){.primary{grid-template-columns:1fr}}
+
+.btn{display:flex;align-items:center;gap:.9rem;width:100%;min-height:3.5rem;padding:.65rem 1rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit;text-align:left;text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s}
+.btn:hover{background:var(--hover);border-color:var(--fg)}
+.btn:active{background:var(--press)}
+.btn:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.btn svg{flex:none;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.btn .arrow{width:15px;height:15px;opacity:.75;margin-left:auto}
 .txt{flex:1;min-width:0}
-.txt b{display:block;font-weight:500;font-size:1.1rem;letter-spacing:.02em}
-.txt small{display:block;color:var(--mute);font-size:.95rem;overflow-wrap:anywhere}
-.btn .arrow{width:16px;height:16px;stroke-width:1.5;opacity:.8;transition:transform .15s,opacity .15s}
-.btn:hover .arrow,.btn:focus-visible .arrow{transform:translate(2px,-2px);opacity:1}
+.txt b{display:block;font-weight:600;font-size:.98rem}
+.txt small{display:block;color:var(--mute);font-size:.85rem;overflow-wrap:anywhere}
 
-/* Not yet published: same box, visibly inactive */
-.btn.soon{border-style:dashed;border-color:rgba(255,255,255,.45);color:var(--mute);cursor:default}
-.btn.soon:hover,.btn.soon:active{background:var(--bg);transform:none}
-.btn.soon .txt b{color:var(--fg);opacity:.75}
-.btn.soon .txt small{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
-.btn.soon .arrow{visibility:hidden}
+/* Most prominent: LinkedIn and Email, inverted */
+.btn.main{min-height:3.75rem;background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn.main .txt small{color:#4a4741}
+.btn.main:hover{background:#fff}
+.btn.main:active{background:#dcd8cf}
 
-@media(prefers-reduced-motion:reduce){.btn,.btn .arrow{transition:none}.btn:active{transform:none}}
+/* Not available yet: same box, visibly inactive, not a link */
+.btn.off{border-style:dashed;border-color:var(--soft);color:var(--mute);cursor:default}
+.btn.off:hover,.btn.off:active{background:var(--bg)}
+.btn.off .txt b{color:var(--fg);opacity:.8}
+.note{margin:.9rem 0 0;color:var(--mute);font-size:.88rem}
+
+footer{margin-top:4rem;color:var(--mute);font-size:.8rem}
 </style>
 </head>
 <body>
@@ -52,57 +60,61 @@ nav ul{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
 <main>
 <header>
 <h1>Anastasiia Stepanenko</h1>
-<div class="rule" aria-hidden="true"></div>
-<p class="place">Munich</p>
+<p class="focus">Optimization &amp; Data Science</p>
+<p class="study">MSc student in Mathematics in Data Science · Technical University of Munich</p>
+<p class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Munich</p>
 </header>
-<nav aria-label="Contact">
-<ul>
-<li><a class="btn" href="https://linkedin.com/in/anastasiia-stepanenko-1a0871327" target="_blank" rel="me noopener">
+
+<section aria-labelledby="contact-h">
+<h2 id="contact-h">Contact</h2>
+<ul class="primary">
+<li><a class="btn main" href="https://linkedin.com/in/anastasiia-stepanenko-1a0871327" target="_blank" rel="me noopener">
 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M8 7.25v.01M12 17v-6.5M12 13.5a2.75 2.75 0 0 1 5.5 0V17"/></svg>
 <span class="txt"><b>LinkedIn</b><small>Anastasiia Stepanenko</small></span>
 <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a></li>
-
+<li><a class="btn main" href="mailto:stepanenkon010@gmail.com">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
+<span class="txt"><b>Email</b><small>stepanenkon010@gmail.com</small></span>
+<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a></li>
+</ul>
+<ul>
 <li><a class="btn" href="tel:+491602328574">
-<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.1 3.8 2 2 0 0 1 3.1 1.6h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L7.1 9.5a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z" transform="translate(.9 .4) scale(.92)"/></svg>
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 15.6v2.8a1.9 1.9 0 0 1-2 1.9 18.3 18.3 0 0 1-8-2.8 18 18 0 0 1-5.5-5.5 18.3 18.3 0 0 1-2.9-8 1.9 1.9 0 0 1 1.9-2h2.8a1.9 1.9 0 0 1 1.8 1.6c.12.9.34 1.75.65 2.6a1.9 1.9 0 0 1-.43 2L7.4 9.4a15 15 0 0 0 5.6 5.6l1.2-1.2a1.9 1.9 0 0 1 2-.43c.85.31 1.7.53 2.6.65a1.9 1.9 0 0 1 1.6 1.9z"/></svg>
 <span class="txt"><b>Phone</b><small>+49 160 2328574</small></span>
 <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a></li>
-
 <li><a class="btn" href="https://wa.me/491602328574" target="_blank" rel="noopener">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.4z"/><path d="M9.2 8.6c.3-.6.9-.6 1.2 0l.6 1.3c.1.3 0 .6-.2.8l-.5.5a5.6 5.6 0 0 0 2.6 2.6l.5-.5c.2-.2.5-.3.8-.2l1.3.6c.6.3.6.9 0 1.2-.7.5-1.6.7-2.4.4a8 8 0 0 1-4.6-4.6c-.3-.8-.1-1.7.4-2.4z"/></svg>
 <span class="txt"><b>WhatsApp</b><small>+49 160 2328574</small></span>
 <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a></li>
-
-<li><a class="btn" href="mailto:stepanenkon010@gmail.com">
-<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.8 6.2 12 13l9.2-6.8M2.8 18.4l7.2-6.9M21.2 18.4 14 11.5"/></svg>
-<span class="txt"><b>Gmail</b><small>stepanenkon010@gmail.com</small></span>
-<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a></li>
-
 <li><a class="btn" href="https://github.com/nastya-star" target="_blank" rel="me noopener">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
 <span class="txt"><b>GitHub</b><small>nastya-star</small></span>
 <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a></li>
-
-<li id="fuel"><span class="btn soon" aria-disabled="true">
+<!-- Fuel project not published yet (checked 2026-10-31). When it is live, replace this item with:
+<li><a class="btn" href="https://nastya-star.github.io/munich-fuel-min/"> …icon… <span class="txt"><b>Gift: Cheapest fuel in town</b><small>Munich Fuel Minimum</small></span> <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></a></li> -->
+<li><span class="btn off" aria-disabled="true">
 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16M3 21h13M7 7.5h5v3.5H7zM15 11h1.5a1.5 1.5 0 0 1 1.5 1.5v4a1.5 1.5 0 0 0 3 0V8.2a1 1 0 0 0-.3-.7L17.5 5"/></svg>
-<span class="txt"><b>Gift: Cheapest fuel in town</b><small>Coming soon</small></span>
-<svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span></li>
+<span class="txt"><b>Gift: Cheapest fuel in town</b><small>Coming soon</small></span></span></li>
 </ul>
-</nav>
+</section>
+
+<section aria-labelledby="cv-h">
+<h2 id="cv-h">CV</h2>
+<ul>
+<li><span class="btn off" aria-disabled="true">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+<span class="txt"><b>View CV</b><small>Available soon</small></span></span></li>
+<li><span class="btn off" aria-disabled="true">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></svg>
+<span class="txt"><b>Download CV</b><small>Available soon</small></span></span></li>
+<li><span class="btn off" aria-disabled="true">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l7 2.5L12.5 20z"/><path d="m10 13.5 4-4"/></svg>
+<span class="txt"><b>Email me a copy</b><small>Available soon</small></span></span></li>
+</ul>
+<p class="note">My CV is being finalised and will be available here shortly. Until then, please reach out via LinkedIn or email.</p>
+</section>
+
+<footer>© Anastasiia Stepanenko · Munich</footer>
 </main>
-<script>
-// The fuel project lives in its own repo on the same origin. Until it is
-// published the button stays a "Coming soon" placeholder; once the page
-// answers, it becomes a normal link automatically.
-(function(){
-  var url="https://nastya-star.github.io/munich-fuel-min/";
-  fetch(url,{method:"HEAD",cache:"no-store"}).then(function(r){
-    if(!r.ok)return;
-    var li=document.getElementById("fuel"),box=li.firstElementChild,a=document.createElement("a");
-    a.className="btn";a.href=url;
-    a.innerHTML=box.innerHTML.replace("<small>Coming soon</small>","<small>Munich Fuel Minimum</small>");
-    li.replaceChild(a,box);
-  }).catch(function(){});
-})();
-</script>
 </body>
 </html>

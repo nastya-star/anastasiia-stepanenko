@@ -82,10 +82,10 @@ input[aria-invalid=true]{border-color:var(--err)}
 <div class="top"><nav class="lang" aria-label="Language"><span aria-current="page" lang="en"><span class="sr">English, </span>EN</span><span class="sep" aria-hidden="true"></span><a href="de/cv.html" hreflang="de" lang="de" data-lang="de"><span class="sr">Deutsch, </span>DE</a></nav></div>
 <h1 class="cvh">CV</h1>
 <p class="sub">Anastasiia Stepanenko · Optimization &amp; Data Science · Munich</p>
-<p class="note">My CV is being finalised and will be available here shortly.</p>
+
 <div class="stack">
-<span class="btn off" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span class="txt"><b>Open PDF</b><small>Opens in a new tab</small></span><span class="tag"><span aria-hidden="true">Soon</span><span class="sr">Coming soon</span></span></span>
-<span class="btn off" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></svg><span class="txt"><b>Download CV</b><small>PDF</small></span><span class="tag"><span aria-hidden="true">Soon</span><span class="sr">Coming soon</span></span></span>
+<a class="btn" href="Anastasiia_Stepanenko_CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span class="txt"><b>Open PDF</b><small>Opens in a new tab</small></span><span class="sr"> (opens in a new tab)</span><svg class="end" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+<a class="btn" href="Anastasiia_Stepanenko_CV.pdf" download="Anastasiia_Stepanenko_CV.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></svg><span class="txt"><b>Download CV</b><small>Anastasiia_Stepanenko_CV.pdf</small></span><svg class="end" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
 <details>
 <summary class="btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l7 2.5L12.5 20z"/><path d="m10 13.5 4-4"/></svg><span class="txt"><b>Send CV to my email</b><small>Sent from anastasiia.stepanenko.work@gmail.com</small></span><svg class="end" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
 <!-- action = the CV mailer's Apps Script /exec URL (apps-script/cv-mailer/SETUP.md) -->
@@ -101,7 +101,9 @@ input[aria-invalid=true]{border-color:var(--err)}
 </details>
 <a class="btn" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span class="txt"><b>Back</b><small>Anastasiia Stepanenko</small></span><svg class="end" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
 </div>
-
+<object class="viewer" data="Anastasiia_Stepanenko_CV.pdf#view=FitH" type="application/pdf" aria-label="CV of Anastasiia Stepanenko (PDF)">
+<p class="fallback">This browser can’t display the PDF here. Use <a href="Anastasiia_Stepanenko_CV.pdf" target="_blank" rel="noopener">Open PDF</a> or <a href="Anastasiia_Stepanenko_CV.pdf" download="Anastasiia_Stepanenko_CV.pdf">Download CV</a>.</p>
+</object>
 </main>
 <script>document.querySelectorAll("[data-lang]").forEach(function(a){a.addEventListener("click",function(){try{localStorage.setItem("lang",a.getAttribute("data-lang"))}catch(e){}})})</script>
 <script src="cv-request.js" defer></script>

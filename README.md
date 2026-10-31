@@ -14,7 +14,7 @@ links work without JavaScript.
 | `build.mjs` | Generates all pages from one template (English and German text). Edit it, run `node build.mjs`, commit the output |
 | `index.html`, `cv.html` | English homepage and CV page (generated) |
 | `de/index.html`, `de/cv.html` | German homepage and CV page (generated) |
-| CV PDFs | **Not added yet.** Set `CV` in `build.mjs` (English and/or German file) and rebuild; the CV button stays "Soon" until then |
+| `Anastasiia_Stepanenko_CV.pdf` | English CV (Europass). German version not provided yet; the German CV page says so. Set `CV` in `build.mjs` and rebuild when adding one |
 | `cv-request.js` | The "Send CV to my email" form script (CV page only) |
 | `apps-script/cv-mailer/` | Google Apps Script backend that sends the CV from anastasiia.stepanenko.work@gmail.com; see its `SETUP.md` |
 
@@ -24,6 +24,6 @@ There is an EN | DE switch at the top right; it uses ordinary links, so it works
 
 ## Status
 
-- **CV:** waiting for the final PDF.
+- **CV:** English PDF live (View, Download). German PDF not provided yet.
 - **Send CV to my email:** the backend code is ready but not deployed. The form stays disabled until `MAILER_URL` in `build.mjs` holds the deployed `/exec` URL (then rebuild).
 - **Fuel project:** shown as "Coming soon" because https://nastya-star.github.io/munich-fuel-min/ is not published (checked 2026-10-31).

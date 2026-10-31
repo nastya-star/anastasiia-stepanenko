@@ -199,7 +199,7 @@ const PAGES = {
   cv: { en: 'cv.html', de: 'de/cv.html' },
 };
 const depth = (lang) => (lang === 'de' ? '../' : '');
-const rel = (lang, target) => depth(lang) + target || './';
+const rel = (lang, target) => (lang === 'de' && target.startsWith('de/') ? target.slice(3) : depth(lang) + target) || './';
 
 // Runs in <head> before anything renders, so there is no flash of the wrong language.
 // A stored choice always wins; on first visit only the English pages switch German-language browsers to German.
@@ -246,7 +246,7 @@ function langSwitch(lang, page) {
 
 function button({ href, icon, title, sub, solid = false, external = false, end = 'out', off = false, offLabel = '', t, attrs = '' }) {
   const inner = `${svg(ICON[icon])}<span class="txt"><b>${esc(title)}</b><small>${esc(sub)}</small></span>`;
-  if (off) return `<span class="btn off" aria-disabled="true">${inner}<span class="tag" title="${esc(offLabel)}"><span aria-hidden="true">${esc(t.soon)}</span><span class="sr">${esc(offLabel)}</span></span></span>`;
+  if (off) return `<span class="btn off" aria-disabled="true">${inner}<span class="tag"><span aria-hidden="true">${esc(t.soon)}</span><span class="sr">${esc(offLabel)}</span></span></span>`;
   const ext = external ? ` target="_blank" rel="noopener"` : '';
   const sr = external ? `<span class="sr"> (${t.opensNewTab})</span>` : '';
   return `<a class="btn${solid ? ' solid' : ''}" href="${esc(href)}"${ext}${attrs}>${inner}${sr}${svg(ARROW[end], 'end')}</a>`;

@@ -16,6 +16,7 @@
 *{box-sizing:border-box}
 html{background:var(--bg)}
 body{margin:0;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg);font:400 18px/1.35 "EB Garamond",Garamond,"Times New Roman",serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
 main{width:100%;max-width:27rem;padding:3.5rem 1rem}
 
 /* Card header, after the engraved-stationery look: small caps, wide tracking, hairline rule */
@@ -47,7 +48,7 @@ nav ul{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
 </style>
 </head>
 <body>
-<svg hidden aria-hidden="true"><symbol id="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol></svg>
+<svg class="sprite" aria-hidden="true" focusable="false"><symbol id="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol></svg>
 <main>
 <header>
 <h1>Anastasiia Stepanenko</h1>

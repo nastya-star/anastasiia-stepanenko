@@ -1,8 +1,10 @@
 /**
  * CV mailer: sends the fixed CV PDF with a fixed message to one visitor-supplied address.
  *
- * Deployed as a Google Apps Script web app that runs as the site owner, so mail is sent
- * from the owner's Gmail account. It is separate from every other script.
+ * Deployed as a Google Apps Script web app owned by, and executing as,
+ * anastasiia.stepanenko.work@gmail.com, so mail is genuinely sent from that Gmail account
+ * (not merely a display name or Reply-To). It refuses to send under any other account.
+ * It is separate from every other script, including the beer-report backend.
  *
  * Accepts exactly three POST fields: email, company (honeypot, must be empty), elapsed (ms).
  * Anything else, including attachments, URLs or message text, is rejected.
@@ -18,18 +20,18 @@ var BODY = [
   '',
   'Thank you for your interest in my work. Please find my CV attached.',
   '',
-  'I am an MSc student in Mathematics in Data Science at the Technical University of Munich, focusing on optimization and data science.',
-  '',
-  'You are welcome to reply to this email to discuss relevant opportunities or collaborations.',
+  'You are welcome to reply to this email to discuss opportunities in optimization, data science or research collaboration.',
   '',
   'Best regards,',
   'Anastasiia Stepanenko',
   'Munich',
-  'stepanenkon010@gmail.com'
+  'anastasiia.stepanenko.work@gmail.com'
 ].join('\n');
 var FILENAME = 'Anastasiia_Stepanenko_CV.pdf';
 var SENDER_NAME = 'Anastasiia Stepanenko';
-var REPLY_TO = 'stepanenkon010@gmail.com';
+// The script must be deployed by, and execute as, this Google account; it refuses to send otherwise.
+var SENDER_ACCOUNT = 'anastasiia.stepanenko.work@gmail.com';
+var REPLY_TO = SENDER_ACCOUNT;
 
 // Conservative limits, enforced here on the server.
 var LIMITS = {
@@ -75,6 +77,7 @@ function handle_(e) {
   if (!email) return 'invalid_email';
 
   if (!isEnabled_()) return 'unavailable';
+  if (!isSenderAccount_()) return 'unavailable';
   var fileId = PropertiesService.getScriptProperties().getProperty('CV_FILE_ID');
   if (!fileId) return 'unavailable';
 
@@ -121,6 +124,10 @@ function normaliseEmail_(raw) {
   return s.toLowerCase();
 }
 
+function isSenderAccount_() {
+  return String(Session.getEffectiveUser().getEmail()).toLowerCase() === SENDER_ACCOUNT;
+}
+
 function isEnabled_() {
   return PropertiesService.getScriptProperties().getProperty('ENABLED') === 'true';
 }
@@ -154,6 +161,8 @@ function checkSetup() {
   var blob = id ? DriveApp.getFileById(id).getBlob() : null;
   console.log(JSON.stringify({
     enabled: isEnabled_(),
+    runningAs: Session.getEffectiveUser().getEmail(),
+    senderAccountOk: isSenderAccount_(),
     cvFileFound: !!blob,
     cvIsPdf: blob ? blob.getContentType() === 'application/pdf' : false,
     cvBytes: blob ? blob.getBytes().length : 0,

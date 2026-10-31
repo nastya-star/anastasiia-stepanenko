@@ -11,14 +11,19 @@ links work without JavaScript.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Homepage: one column of buttons (LinkedIn, WhatsApp, Email, Phone, GitHub, CV, fuel project) |
-| `cv.html` | CV page: embedded PDF, Open PDF, Download CV, Send CV to my email, Back. The PDF loads only here |
-| `Anastasiia_Stepanenko_CV.pdf` | The CV (**not added yet**: the homepage CV button stays "Coming soon" until it is) |
+| `build.mjs` | Generates all pages from one template (English and German text). Edit it, run `node build.mjs`, commit the output |
+| `index.html`, `cv.html` | English homepage and CV page (generated) |
+| `de/index.html`, `de/cv.html` | German homepage and CV page (generated) |
+| CV PDFs | **Not added yet.** Set `CV` in `build.mjs` (English and/or German file) and rebuild; the CV button stays "Soon" until then |
 | `cv-request.js` | The "Send CV to my email" form script (CV page only) |
 | `apps-script/cv-mailer/` | Google Apps Script backend that sends the CV from anastasiia.stepanenko.work@gmail.com; see its `SETUP.md` |
+
+## Language
+
+There is an EN | DE switch at the top right; it uses ordinary links, so it works without JavaScript. A small inline script remembers the visitor's choice in `localStorage`. On a first visit, German-language browsers are sent to `de/`; everyone else gets English. This happens in `<head>`, before anything is drawn.
 
 ## Status
 
 - **CV:** waiting for the final PDF.
-- **Send CV to my email:** the backend code is ready but not deployed. The form stays disabled until `cv.html`'s form `action` holds the deployed `/exec` URL.
+- **Send CV to my email:** the backend code is ready but not deployed. The form stays disabled until `MAILER_URL` in `build.mjs` holds the deployed `/exec` URL (then rebuild).
 - **Fuel project:** shown as "Coming soon" because https://nastya-star.github.io/munich-fuel-min/ is not published (checked 2026-10-31).

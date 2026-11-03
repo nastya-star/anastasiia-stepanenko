@@ -17,7 +17,7 @@ const SITE = 'https://nastya-star.github.io/anastasiia-stepanenko/';
 // homepage CV button stays inactive and is labelled as coming soon.
 const CV = { en: 'Anastasiia_Stepanenko_CV.pdf', de: null }; // English Europass CV added 2026-10-31; German version not provided yet
 // The fuel project (separate repo) is not published yet (checked 2026-10-31).
-const FUEL_URL = null; // set to 'https://nastya-star.github.io/munich-fuel-min/' once it is live
+const FUEL_URL = 'https://nastya-star.github.io/munich-fuel-min/'; // live since 2026-11-03
 // Apps Script /exec URL of apps-script/cv-mailer; null = email delivery not set up yet.
 const MAILER_URL = 'https://script.google.com/macros/s/AKfycbw2ujz24SGgibmiJL6kNifrusFNfSHXZ3iXcK7mJpe0aUrVbTIv_5yqcuGA5m0JuDeJ/exec';
 

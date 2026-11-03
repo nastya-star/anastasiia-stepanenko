@@ -26,4 +26,4 @@ There is an EN | DE switch at the top right; it uses ordinary links, so it works
 
 - **CV:** English PDF live (View, Download). German PDF not provided yet.
 - **Send CV to my email:** connected to the deployed cv-mailer (`MAILER_URL` in `build.mjs`). Email delivery not yet verified with a received test message.
-- **Fuel project:** shown as "Coming soon" because https://nastya-star.github.io/munich-fuel-min/ is not published (checked 2026-10-31).
+- **Fuel project:** linked to https://nastya-star.github.io/munich-fuel-min/ (live since 2026-11-03; `FUEL_URL` in `build.mjs`).

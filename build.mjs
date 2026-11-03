@@ -340,7 +340,6 @@ ${pdf ? button({ t, href: pdf, icon: 'download', title: t.download, sub: fileNam
 <p id="cv-status" class="form-status" role="status" aria-live="polite"></p>
 </form>
 </details>
-${button({ t, href: rel(lang, PAGES.home[lang]), icon: 'back', title: t.back, sub: NAME, end: 'left' })}
 </div>
 ${pdf ? `<object class="viewer" data="${pdf}#view=FitH" type="application/pdf" aria-label="${esc(t.viewerLabel)}">
 <p class="fallback">${t.fallback(fallbackOpen, fallbackDl)}</p>

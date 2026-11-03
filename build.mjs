@@ -54,6 +54,7 @@ const T = {
     sendCv: 'Send CV to my email',
     sendCvSub: `Sent from ${EMAIL}`,
     back: 'Back',
+    backMain: '← Back to main page',
     formLabel: 'Your email address',
     formHint: `My CV will be sent as a PDF from ${EMAIL}. Your address is used only for this one email.`,
     placeholder: 'name@company.com',
@@ -95,6 +96,7 @@ const T = {
     sendCv: 'Lebenslauf per E-Mail erhalten',
     sendCvSub: `Versand von ${EMAIL}`,
     back: 'Zurück',
+    backMain: '← Zurück zur Hauptseite',
     formLabel: 'Ihre E-Mail-Adresse',
     formHint: `Mein Lebenslauf wird als PDF von ${EMAIL} versendet. Ihre Adresse wird ausschließlich für diese eine E-Mail verwendet.`,
     placeholder: 'name@unternehmen.de',
@@ -133,7 +135,11 @@ const CSS = `:root{--bg:#111111;--fg:#F5F3EE;--mute:#B9B5AC;--line:rgba(245,243,
 html{background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.5 var(--sans);-webkit-font-smoothing:antialiased}
 main{max-width:30rem;margin:0 auto;padding:1.25rem 1.25rem 4rem}
-.top{display:flex;justify-content:flex-end;margin-bottom:2.25rem}
+.top{display:flex;align-items:center;gap:1rem;margin-bottom:2.25rem}
+.top .lang{margin-left:auto}
+.backlink{display:inline-flex;align-items:center;min-height:2.75rem;color:var(--mute);text-decoration:none;font-size:.95rem}
+.backlink:hover{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+.backlink:focus-visible{outline:2px solid var(--fg);outline-offset:2px;border-radius:4px}
 .lang{display:inline-flex;align-items:stretch;border:1px solid var(--soft);border-radius:6px;font-size:.85rem;font-weight:600;letter-spacing:.06em}
 /* Children carry the parent radius (minus its 1px border) on their outer corners, so the inverted
    current item never shows square corners; no overflow:hidden, so focus outlines are not clipped. */
@@ -165,6 +171,13 @@ ul{list-style:none;margin:0;padding:0}
 .btn.solid .txt small{color:#3d3a35}
 .btn.solid:hover{background:#e9e7e2;border-color:#e9e7e2}
 .btn.solid:active{background:#d6d3cc;border-color:#d6d3cc}
+/* Fuel project: flat silver, dark text and icons */
+.btn.silver{background:#BFC3C6;color:#111111;border-color:#BFC3C6}
+.btn.silver .txt small{color:#2b2d2f}
+.btn.silver:hover{background:#CDD0D3;border-color:#CDD0D3}
+.btn.silver:active{background:#B3B7BA;border-color:#B3B7BA}
+/* Gmail and phone: shown on phones only */
+@media(min-width:768px){.mobile-only{display:none}}
 .btn.off{border-style:dashed;border-color:var(--soft);cursor:default}
 .btn.off:hover,.btn.off:active{background:var(--bg)}
 .btn.off svg{opacity:.7}
@@ -239,21 +252,22 @@ ${extraCss}
 </head>`;
 }
 
-function langSwitch(lang, page) {
+function langSwitch(lang, page, { back = false } = {}) {
   const t = T[lang];
   const item = (l) =>
     l === lang
       ? `<span aria-current="page" lang="${l}"><span class="sr">${l === 'en' ? 'English' : 'Deutsch'}, </span>${l.toUpperCase()}</span>`
       : `<a href="${rel(lang, PAGES[page][l])}" hreflang="${l}" lang="${l}" data-lang="${l}"><span class="sr">${l === 'en' ? 'English' : 'Deutsch'}, </span>${l.toUpperCase()}</a>`;
-  return `<div class="top"><nav class="lang" aria-label="${t.langNav}">${item('en')}<span class="sep" aria-hidden="true"></span>${item('de')}</nav></div>`;
+  const backLink = back ? `<a class="backlink" href="${rel(lang, PAGES.home[lang])}" data-back>${esc(t.backMain)}</a>` : '';
+  return `<div class="top">${backLink}<nav class="lang" aria-label="${t.langNav}">${item('en')}<span class="sep" aria-hidden="true"></span>${item('de')}</nav></div>`;
 }
 
-function button({ href, icon, title, sub, solid = false, external = false, end = 'out', off = false, offLabel = '', t, attrs = '' }) {
+function button({ href, icon, title, sub, solid = false, silver = false, external = false, end = 'out', off = false, offLabel = '', t, attrs = '' }) {
   const inner = `${svg(ICON[icon])}<span class="txt"><b>${esc(title)}</b><small>${esc(sub)}</small></span>`;
   if (off) return `<span class="btn off" aria-disabled="true">${inner}<span class="tag"><span aria-hidden="true">${esc(t.soon)}</span><span class="sr">${esc(offLabel)}</span></span></span>`;
   const ext = external ? ` target="_blank" rel="noopener"` : '';
   const sr = external ? `<span class="sr"> (${t.opensNewTab})</span>` : '';
-  return `<a class="btn${solid ? ' solid' : ''}" href="${esc(href)}"${ext}${attrs}>${inner}${sr}${svg(ARROW[end], 'end')}</a>`;
+  return `<a class="btn${solid ? ' solid' : ''}${silver ? ' silver' : ''}" href="${esc(href)}"${ext}${attrs}>${inner}${sr}${svg(ARROW[end], 'end')}</a>`;
 }
 
 // --- Homepage ------------------------------------------------------------------
@@ -263,11 +277,11 @@ function home(lang) {
   const items = [
     button({ t, href: 'https://linkedin.com/in/anastasiia-stepanenko-1a0871327', icon: 'linkedin', title: 'LinkedIn', sub: NAME, solid: true, external: true }),
     button({ t, href: 'https://wa.me/491602328574', icon: 'whatsapp', title: 'WhatsApp', sub: PHONE, solid: true, external: true }),
-    button({ t, href: `mailto:${EMAIL}`, icon: 'mail', title: 'Gmail', sub: EMAIL }),
-    button({ t, href: `tel:${PHONE_TEL}`, icon: 'phone', title: t.phone, sub: PHONE }),
+    [button({ t, href: `mailto:${EMAIL}`, icon: 'mail', title: 'Gmail', sub: EMAIL }), 'mobile-only'],
+    [button({ t, href: `tel:${PHONE_TEL}`, icon: 'phone', title: t.phone, sub: PHONE }), 'mobile-only'],
     button({ t, href: 'https://github.com/nastya-star', icon: 'github', title: 'GitHub', sub: 'nastya-star', external: true }),
     button({ t, href: rel(lang, PAGES.cv[lang]), icon: 'cv', title: t.cv, sub: t.cvSub, off: !anyCv, offLabel: t.soonLong }),
-    button({ t, href: FUEL_URL, icon: 'fuel', title: t.fuel, sub: t.fuelSub, external: true, off: !FUEL_URL, offLabel: t.soonLong }),
+    button({ t, href: FUEL_URL, icon: 'fuel', title: t.fuel, sub: t.fuelSub, silver: true, external: true, off: !FUEL_URL, offLabel: t.soonLong }),
   ];
   return `${head(lang, 'home', t.title, t.description)}
 <body>
@@ -281,7 +295,7 @@ ${langSwitch(lang, 'home')}
 </header>
 <nav aria-label="${esc(t.linksNav)}">
 <ul class="stack">
-${items.map((b) => `<li>${b}</li>`).join('\n')}
+${items.map((b) => (Array.isArray(b) ? `<li class="${b[1]}">${b[0]}</li>` : `<li>${b}</li>`)).join('\n')}
 </ul>
 </nav>
 <footer>${esc(t.footer)}</footer>
@@ -306,7 +320,7 @@ function cvPage(lang) {
   return `${head(lang, 'cv', t.cvTitle, t.cvDescription, CV_CSS)}
 <body>
 <main class="wide">
-${langSwitch(lang, 'cv')}
+${langSwitch(lang, 'cv', { back: true })}
 <h1 class="cvh">${esc(t.cvHeading)}</h1>
 <p class="sub">${esc(t.cvIntro)}</p>
 ${note ? `<p class="note">${esc(note)}</p>` : ''}
@@ -333,6 +347,7 @@ ${pdf ? `<object class="viewer" data="${pdf}#view=FitH" type="application/pdf" a
 </object>` : ''}
 </main>
 ${SWITCH_SCRIPT}
+<script>(function(){var a=document.querySelector("[data-back]");if(!a)return;a.addEventListener("click",function(e){try{var r=document.referrer?new URL(document.referrer):null;var home=new URL(a.getAttribute("href"),location.href);if(r&&r.origin===location.origin&&r.pathname===home.pathname&&history.length>1){e.preventDefault();history.back()}}catch(_){}})})()</script>
 <script src="${depth(lang)}cv-request.js" defer></script>
 </body>
 </html>

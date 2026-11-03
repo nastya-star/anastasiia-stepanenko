@@ -19,7 +19,11 @@
 html{background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.5 var(--sans);-webkit-font-smoothing:antialiased}
 main{max-width:30rem;margin:0 auto;padding:1.25rem 1.25rem 4rem}
-.top{display:flex;justify-content:flex-end;margin-bottom:2.25rem}
+.top{display:flex;align-items:center;gap:1rem;margin-bottom:2.25rem}
+.top .lang{margin-left:auto}
+.backlink{display:inline-flex;align-items:center;min-height:2.75rem;color:var(--mute);text-decoration:none;font-size:.95rem}
+.backlink:hover{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+.backlink:focus-visible{outline:2px solid var(--fg);outline-offset:2px;border-radius:4px}
 .lang{display:inline-flex;align-items:stretch;border:1px solid var(--soft);border-radius:6px;font-size:.85rem;font-weight:600;letter-spacing:.06em}
 /* Children carry the parent radius (minus its 1px border) on their outer corners, so the inverted
    current item never shows square corners; no overflow:hidden, so focus outlines are not clipped. */
@@ -51,6 +55,13 @@ ul{list-style:none;margin:0;padding:0}
 .btn.solid .txt small{color:#3d3a35}
 .btn.solid:hover{background:#e9e7e2;border-color:#e9e7e2}
 .btn.solid:active{background:#d6d3cc;border-color:#d6d3cc}
+/* Fuel project: flat silver, dark text and icons */
+.btn.silver{background:#BFC3C6;color:#111111;border-color:#BFC3C6}
+.btn.silver .txt small{color:#2b2d2f}
+.btn.silver:hover{background:#CDD0D3;border-color:#CDD0D3}
+.btn.silver:active{background:#B3B7BA;border-color:#B3B7BA}
+/* Gmail and phone: shown on phones only */
+@media(min-width:768px){.mobile-only{display:none}}
 .btn.off{border-style:dashed;border-color:var(--soft);cursor:default}
 .btn.off:hover,.btn.off:active{background:var(--bg)}
 .btn.off svg{opacity:.7}
@@ -83,7 +94,7 @@ input[aria-invalid=true]{border-color:var(--err)}
 </head>
 <body>
 <main class="wide">
-<div class="top"><nav class="lang" aria-label="Sprache"><a href="../cv.html" hreflang="en" lang="en" data-lang="en"><span class="sr">English, </span>EN</a><span class="sep" aria-hidden="true"></span><span aria-current="page" lang="de"><span class="sr">Deutsch, </span>DE</span></nav></div>
+<div class="top"><a class="backlink" href="./" data-back>← Zurück zur Hauptseite</a><nav class="lang" aria-label="Sprache"><a href="../cv.html" hreflang="en" lang="en" data-lang="en"><span class="sr">English, </span>EN</a><span class="sep" aria-hidden="true"></span><span aria-current="page" lang="de"><span class="sr">Deutsch, </span>DE</span></nav></div>
 <h1 class="cvh">Lebenslauf</h1>
 <p class="sub">Anastasiia Stepanenko · Optimierung &amp; Data Science · München</p>
 <p class="note">Der Lebenslauf liegt derzeit nur auf Englisch vor.</p>
@@ -110,6 +121,7 @@ input[aria-invalid=true]{border-color:var(--err)}
 </object>
 </main>
 <script>document.querySelectorAll("[data-lang]").forEach(function(a){a.addEventListener("click",function(){try{localStorage.setItem("lang",a.getAttribute("data-lang"))}catch(e){}})})</script>
+<script>(function(){var a=document.querySelector("[data-back]");if(!a)return;a.addEventListener("click",function(e){try{var r=document.referrer?new URL(document.referrer):null;var home=new URL(a.getAttribute("href"),location.href);if(r&&r.origin===location.origin&&r.pathname===home.pathname&&history.length>1){e.preventDefault();history.back()}}catch(_){}})})()</script>
 <script src="../cv-request.js" defer></script>
 </body>
 </html>

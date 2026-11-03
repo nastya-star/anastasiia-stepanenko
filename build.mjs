@@ -134,12 +134,16 @@ html{background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.5 var(--sans);-webkit-font-smoothing:antialiased}
 main{max-width:30rem;margin:0 auto;padding:1.25rem 1.25rem 4rem}
 .top{display:flex;justify-content:flex-end;margin-bottom:2.25rem}
-.lang{display:flex;align-items:center;border:1px solid var(--soft);border-radius:6px;font-size:.85rem;font-weight:600;letter-spacing:.06em}
-.lang a,.lang span{display:flex;align-items:center;justify-content:center;min-width:2.75rem;min-height:2.75rem;padding:0 .7rem;color:var(--mute);text-decoration:none}
+.lang{display:inline-flex;align-items:stretch;border:1px solid var(--soft);border-radius:6px;font-size:.85rem;font-weight:600;letter-spacing:.06em}
+/* Children carry the parent radius (minus its 1px border) on their outer corners, so the inverted
+   current item never shows square corners; no overflow:hidden, so focus outlines are not clipped. */
+.lang>a,.lang>span{display:flex;align-items:center;justify-content:center;width:3rem;min-height:2.75rem;color:var(--mute);text-decoration:none}
+.lang>:first-child{border-radius:5px 0 0 5px}
+.lang>:last-child{border-radius:0 5px 5px 0}
 .lang a:hover{color:var(--fg);background:var(--hover)}
-.lang a:focus-visible{outline:2px solid var(--fg);outline-offset:2px;border-radius:6px}
+.lang a:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .lang [aria-current]{color:var(--bg);background:var(--fg)}
-.lang .sep{min-width:0;padding:0;width:1px;align-self:stretch;background:var(--soft)}
+.lang>.sep{width:1px;min-height:0;background:var(--soft)}
 header{margin-bottom:2.5rem}
 h1{margin:0;font:400 clamp(2.1rem,8vw,2.75rem)/1.1 var(--serif);letter-spacing:.01em}
 .focus{margin:.9rem 0 0;font-size:.82rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
